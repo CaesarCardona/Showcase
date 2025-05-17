@@ -1,9 +1,104 @@
+/* Global */
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #f0f0f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #000;
+  margin: 0;
+  padding: 0;
 }
 
+/* Full-width about box (dark blue) */
+.about-box {
+  width: 100%;
+  background-color: #003366;
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Header */
 h1 {
-  color: #333;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Repo Cards */
+.repo {
+  background-color: #e0e0e0;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.repo:hover .repo-img,
+.repo:hover .repo-link {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Hide image/link by default */
+.repo-img,
+.repo-link {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Full width for first repo */
+.full-width {
+  width: 100%;
+}
+
+/* Image */
+.repo-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Link */
+.repo-link {
+  color: #007acc;
+  text-decoration: none;
+}
+
+.repo-link:hover {
+  text-decoration: underline;
+}
+
+/* Grid: 2 per row only */
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
