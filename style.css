@@ -111,11 +111,19 @@ h1 {
 }
 
 .flip-card-back a {
-  color: #ffd;
+  color: black !important;
   text-decoration: underline;
   font-weight: bold;
   font-size: 1.1em;
   cursor: pointer;
+}
+
+.flip-card-back img {
+  max-width: 100%;
+  max-height: 180px; /* adjust height as needed */
+  object-fit: contain;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 /* Image */
