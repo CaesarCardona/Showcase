@@ -92,5 +92,50 @@
   }
 
   type();
+  
+// Typing animation (unchanged)
+const roles = ["Webdev", "Machine Learning", "DB Management"];
+let part = 0, index = 0, isDeleting = false;
+const element = document.getElementById("typing");
+
+function type() {
+  const current = roles[part];
+  element.textContent = current.substring(0, index) + (index % 2 === 0 ? "_" : "");
+
+  if (!isDeleting) {
+    index++;
+    if (index > current.length) {
+      isDeleting = true;
+      setTimeout(type, 1000);
+      return;
+    }
+  } else {
+    index--;
+    if (index === 0) {
+      isDeleting = false;
+      part = (part + 1) % roles.length;
+    }
+  }
+
+  setTimeout(type, isDeleting ? 60 : 120);
+}
+type();
+
+// Scroll animation trigger
+const fadeEls = document.querySelectorAll('.fade-in');
+
+function handleScroll() {
+  fadeEls.forEach((el, i) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, i * 100); // stagger the animation slightly
+    }
+  });
+}
+
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('load', handleScroll);  
 </script>
 </body>
