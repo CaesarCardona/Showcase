@@ -5,6 +5,145 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Caesar's Repository Showcase</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Embedded CSS from style.css and flip card updates */
+
+    /* Global */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Full-width about box (dark blue) */
+    .about-box {
+      width: 100%;
+      background-color: #003366;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Header */
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* Flip card container */
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    /* Full width for first repo */
+    .full-width {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    /* Flip Card */
+    .flip-card {
+      background-color: transparent;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 180px;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Flip on hover */
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Front and Back faces */
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 8px;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #e0e0e0;
+      color: #000;
+    }
+
+    /* Front side */
+    .flip-card-front h2 {
+      margin: 0 0 10px;
+    }
+
+    .flip-card-front p {
+      margin: 0;
+    }
+
+    /* Back side */
+    .flip-card-back {
+      background-color: #007acc;
+      color: white;
+      transform: rotateY(180deg);
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .flip-card-back img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .flip-card-back a {
+      color: #ffd;
+      text-decoration: underline;
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  </style>
 </head>
 
 <body>
@@ -19,123 +158,127 @@
     <p class="typing-text" id="typing"></p>
   </div>
 
-  <!-- 🧩 Wrap repos inside container again -->
   <div class="container">
 
-    <br>
-    <!-- First Repo -->
-    <div class="repo full-width fade-in">
-      <h2>First Repository</h2>
-      <p class="repo-description">A featured repository that stands out for its design and importance. Shown full width for emphasis.</p>
-      <img src="example.png" alt="Repo Image" class="repo-img hidden" />
-      <a href="#" class="repo-link hidden">Visit Repository</a>
+    <!-- First Repo (Full width) -->
+    <div class="flip-card full-width fade-in">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h2>First Repository</h2>
+          <p>A featured repository that stands out for its design and importance. Shown full width for emphasis.</p>
+        </div>
+        <div class="flip-card-back">
+          <img src="example.png" alt="Repo Image" />
+          <a href="#" target="_blank" rel="noopener noreferrer">Click Me</a>
+        </div>
+      </div>
     </div>
 
     <!-- Grid for Repos 2–5 -->
     <div class="repo-grid">
-      <div class="repo fade-in">
-        <h2>Second Repository</h2>
-        <p class="repo-description">Clean and modular setup using modern practices.</p>
-        <img src="example.png" alt="Repo Image" class="repo-img hidden" />
-        <a href="#" class="repo-link hidden">Visit Repository</a>
+
+      <div class="flip-card fade-in">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h2>Second Repository</h2>
+            <p>Clean and modular setup using modern practices.</p>
+          </div>
+          <div class="flip-card-back">
+            <img src="example.png" alt="Repo Image" />
+            <a href="#" target="_blank" rel="noopener noreferrer">Click Me</a>
+          </div>
+        </div>
       </div>
-      <div class="repo fade-in">
-        <h2>Third Repository</h2>
-        <p class="repo-description">A utility project showcasing practical solutions.</p>
-        <img src="example.png" alt="Repo Image" class="repo-img hidden" />
-        <a href="#" class="repo-link hidden">Visit Repository</a>
+
+      <div class="flip-card fade-in">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h2>Third Repository</h2>
+            <p>A utility project showcasing practical solutions.</p>
+          </div>
+          <div class="flip-card-back">
+            <img src="example.png" alt="Repo Image" />
+            <a href="#" target="_blank" rel="noopener noreferrer">Click Me</a>
+          </div>
+        </div>
       </div>
-      <div class="repo fade-in">
-        <h2>Fourth Repository</h2>
-        <p class="repo-description">Backend-oriented with RESTful features and testing.</p>
-        <img src="example.png" alt="Repo Image" class="repo-img hidden" />
-        <a href="#" class="repo-link hidden">Visit Repository</a>
+
+      <div class="flip-card fade-in">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h2>Fourth Repository</h2>
+            <p>Backend-oriented with RESTful features and testing.</p>
+          </div>
+          <div class="flip-card-back">
+            <img src="example.png" alt="Repo Image" />
+            <a href="#" target="_blank" rel="noopener noreferrer">Click Me</a>
+          </div>
+        </div>
       </div>
-      <div class="repo fade-in">
-        <h2>Fifth Repository</h2>
-        <p class="repo-description">Frontend UI experiments with interactive components.</p>
-        <img src="example.png" alt="Repo Image" class="repo-img hidden" />
-        <a href="#" class="repo-link hidden">Visit Repository</a>
+
+      <div class="flip-card fade-in">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h2>Fifth Repository</h2>
+            <p>Frontend UI experiments with interactive components.</p>
+          </div>
+          <div class="flip-card-back">
+            <img src="example.png" alt="Repo Image" />
+            <a href="#" target="_blank" rel="noopener noreferrer">Click Me</a>
+          </div>
+        </div>
       </div>
+
     </div>
-  </div> <!-- End .container -->
+  </div> <!-- End container -->
 
-  <script src="script.js"></script>
-  
   <script>
-  const roles = ["Webdev", "Machine Learning", "DB Management"];
-  let part = 0;
-  let index = 0;
-  let isDeleting = false;
-  const element = document.getElementById("typing");
+    const roles = ["Webdev", "Machine Learning", "DB Management"];
+    let part = 0;
+    let index = 0;
+    let isDeleting = false;
+    const element = document.getElementById("typing");
 
-  function type() {
-    const current = roles[part];
-    element.textContent = current.substring(0, index) + (index % 2 === 0 ? "_" : "");
+    function type() {
+      const current = roles[part];
+      element.textContent = current.substring(0, index) + (index % 2 === 0 ? "_" : "");
 
-    if (!isDeleting) {
-      index++;
-      if (index > current.length) {
-        isDeleting = true;
-        setTimeout(type, 1000); // pause before deleting
-        return;
+      if (!isDeleting) {
+        index++;
+        if (index > current.length) {
+          isDeleting = true;
+          setTimeout(type, 1000); // pause before deleting
+          return;
+        }
+      } else {
+        index--;
+        if (index === 0) {
+          isDeleting = false;
+          part = (part + 1) % roles.length;
+        }
       }
-    } else {
-      index--;
-      if (index === 0) {
-        isDeleting = false;
-        part = (part + 1) % roles.length;
-      }
+
+      setTimeout(type, isDeleting ? 60 : 120);
     }
 
-    setTimeout(type, isDeleting ? 60 : 120);
-  }
+    type();
 
-  type();
-  
-// Typing animation (unchanged)
-const roles = ["Webdev", "Machine Learning", "DB Management"];
-let part = 0, index = 0, isDeleting = false;
-const element = document.getElementById("typing");
+    // Scroll animation trigger
+    const fadeEls = document.querySelectorAll('.fade-in');
 
-function type() {
-  const current = roles[part];
-  element.textContent = current.substring(0, index) + (index % 2 === 0 ? "_" : "");
-
-  if (!isDeleting) {
-    index++;
-    if (index > current.length) {
-      isDeleting = true;
-      setTimeout(type, 1000);
-      return;
+    function handleScroll() {
+      fadeEls.forEach((el, i) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, i * 100); // stagger animation
+        }
+      });
     }
-  } else {
-    index--;
-    if (index === 0) {
-      isDeleting = false;
-      part = (part + 1) % roles.length;
-    }
-  }
 
-  setTimeout(type, isDeleting ? 60 : 120);
-}
-type();
-
-// Scroll animation trigger
-const fadeEls = document.querySelectorAll('.fade-in');
-
-function handleScroll() {
-  fadeEls.forEach((el, i) => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      setTimeout(() => {
-        el.classList.add('visible');
-      }, i * 100); // stagger the animation slightly
-    }
-  });
-}
-
-window.addEventListener('scroll', handleScroll);
-window.addEventListener('load', handleScroll);  
-</script>
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', handleScroll);
+  </script>
 </body>
+</html>
